@@ -77,45 +77,6 @@ def auriculares(request):
             miFormulario= FormularioNuevoAccesorio2() 
       return render(request, "productos.html", {"miFormulario":miFormulario}) 
 
-# def compradores(request):
-#       if request.method == 'POST':
-#             miFormulario = AccesorioFormulario(request.POST) 
-#             print(miFormulario)
-#             if miFormulario.is_valid:   
-#                   informacion = miFormulario.cleaned_data
-#                   comprador = Comprador(nombre=informacion['nombre'], apellido=informacion['apellido'], email=informacion['email']) 
-#                   comprador.save()
-#                   return render(request, "inicio.html") 
-#       else: 
-#             miFormulario= AccesorioFormulario() 
-#       return render(request, "compradores.html", {"miFormulario":miFormulario}) 
-
-# def vendedores(request):
-#       if request.method == 'POST':
-#             miFormulario = VendedorFormulario(request.POST) 
-#             print(miFormulario)
-#             if miFormulario.is_valid:   
-#                   informacion = miFormulario.cleaned_data
-#                   vendedor = Vendedor(nombre=informacion['nombre'], apellido=informacion['apellido'], email=informacion['email']) 
-#                   vendedor.save()
-#                   return render(request, "inicio.html") 
-#       else: 
-#             miFormulario= VendedorFormulario() 
-#       return render(request, "vendedores.html", {"miFormulario":miFormulario})
-
-# def empresas(request):
-#       if request.method == 'POST':
-#             miFormulario = EmpresasFormulario(request.POST) 
-#             print(miFormulario)
-#             if miFormulario.is_valid:   
-#                   informacion = miFormulario.cleaned_data
-#                   empresa = Empresa(nombre=informacion['nombre']) 
-#                   empresa.save()
-#                   return render(request, "inicio.html") 
-#       else: 
-#             miFormulario= EmpresasFormulario() 
-#       return render(request, "empresas.html", {"miFormulario":miFormulario}) 
-
 def buscar(request):
     if request.GET["nombre"]:
         nombre = request.GET['nombre'] 
@@ -233,13 +194,13 @@ class TecladoDetalle(LoginRequiredMixin, DetailView):
 class TecladoUpdate(LoginRequiredMixin, UpdateView):
     model = Accesorio2
     form_class = ActualizacionAccesorio
-    success_url = reverse_lazy('teclados')
+    success_url = reverse_lazy('Teclados')
     context_object_name = 'teclado'
     template_name = 'tecladoEdicion.html'
 
 class TecladoDelete(LoginRequiredMixin, DeleteView):
     model = Accesorio2
-    success_url = reverse_lazy('teclados')
+    success_url = reverse_lazy('Teclados')
     context_object_name = 'teclado'
     template_name = 'tecladoBorrado.html'
 
@@ -258,13 +219,13 @@ class AuricularDetalle(LoginRequiredMixin, DetailView):
 class AuricularUpdate(LoginRequiredMixin, UpdateView):
     model = Accesorio2
     form_class = ActualizacionAccesorio
-    success_url = reverse_lazy('auriculares')
+    success_url = reverse_lazy('Auriculares')
     context_object_name = 'auricular'
     template_name = 'auricularEdicion.html'
 
 class AuricularDelete(LoginRequiredMixin, DeleteView):
     model = Accesorio2
-    success_url = reverse_lazy('auriculares')
+    success_url = reverse_lazy('Auriculares')
     context_object_name = 'auricular'
     template_name = 'auricularBorrado.html'
 
@@ -283,13 +244,13 @@ class MouseDetalle(LoginRequiredMixin, DetailView):
 class MouseUpdate(LoginRequiredMixin, UpdateView):
     model = Accesorio2
     form_class = ActualizacionAccesorio
-    success_url = reverse_lazy('mouses')
+    success_url = reverse_lazy('Mouses')
     context_object_name = 'mouse'
     template_name = 'mouseEdicion.html'
 
 class MouseDelete(LoginRequiredMixin, DeleteView):
     model = Accesorio2
-    success_url = reverse_lazy('mouses')
+    success_url = reverse_lazy('Mouses')
     context_object_name = 'mouse'
     template_name = 'mouseBorrado.html'
 
@@ -314,3 +275,13 @@ class AccesorioCreacion2(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(AccesorioCreacion2, self).form_valid(form)
+
+#################
+
+class UsuarioEdicion(UpdateView):
+    form_class = FormularioEdicion
+    template_name= 'edicionPerfil.html'
+    success_url = reverse_lazy('inicio')
+
+    def get_object(self):
+        return self.request.user

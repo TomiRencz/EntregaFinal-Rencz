@@ -3,40 +3,35 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-<div class="container text-center">
-    <h1>Auriculares</h1>
-</div>
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+
+{% if user.id == auricular.usuario.id %}
 <div class="container text-center">
-    <div class="row">
-            {% if auricular %}
-            {% for auricular in auricular %}
-            <div class="col-sm-6 align-items-center">
-                <div class="card-body">
-                    {% if auricular.imagenAccesorio %}
-                <img src="{{auricular.imagenAccesorio.url}}" class="" width="100px">
-                    {% else %}
-                    <p>No hay imagen </p>
-                    {% endif %}
-                {{auricular.titulo}}
-                <a href="{% url 'auricular' auricular.id %}"><i class="bi bi-eye"></i></a>
-                {% if user.id == auricular.usuario.id %}
-                <a href="{% url 'auricular_editar' auricular.id %}"><i class="bi bi-pencil-fill"></i></a>
-                <a href="{% url 'auricular_eliminar' auricular.id %}"><i class="bi bi-trash text-danger"></i></a>
-                <br>
-                <br>
-                <br>
-                <br>
-                {% endif %}
-                </div>
-            </div>
-            {% endfor %}
-            {% else %}
-            <p>Test</p>
-            {% endif %}
-    </div>
+
+<form method="post">{% csrf_token %}
+    <h4>Estás seguro(a) que deseas borrar el auricular {{auricular.marca}} {{auricular.modelo}} ?</h4>
+    <p>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </p>
+</form>
+
 </div>
+{% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 {% endblock %}

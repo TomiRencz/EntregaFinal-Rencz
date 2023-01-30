@@ -1,6 +1,8 @@
 {% extends 'padre.html' %}
 
-{% block content %}
+{% load static %}
+
+{% block contenidoQueCambia %}
 
 <br>
 <br>
@@ -14,7 +16,9 @@
 
 {% if user.id == teclado.usuario.id %}
 <div class="container text-center">
-
+<br>
+<br>
+<br>
 <form method="post">{% csrf_token %}
     <h4>Estás seguro(a) que deseas borrar el teclado {{teclado.marca}} {{teclado.modelo}} ?</h4>
     <p>

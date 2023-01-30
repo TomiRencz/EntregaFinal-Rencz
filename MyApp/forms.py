@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm,UserChangeForm
 from django.contrib.auth.models import User
 from MyApp.models import *
 
@@ -63,13 +63,6 @@ class FormularioCambioPassword(PasswordChangeForm):
         model = User
         fields = ('old_password', 'new_password1', 'new_password2')
 
-
-class ActualizacionAccesorio(forms.ModelForm):
-    class Meta:
-        model = Accesorio2
-        fields = ('usuario','accesorio','marca','modelo','descripcion','year','precio','imagenAccesorio')
-
-
 class FormularioComentario(forms.ModelForm):
     class Meta:
         model = Comentario
@@ -94,15 +87,31 @@ class FormularioComentario(forms.ModelForm):
 class FormularioNuevoAccesorio2(forms.ModelForm):
     class Meta:
         model = Accesorio2
-        fields = ('usuario','accesorio','marca','modelo','descripcion','year','precio','imagenAccesorio')
+        fields = ('accesorio','marca','modelo','descripcion','year','precio')
 
         widgets = {
             'usuario': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id':'usuario_id', 'type':'hidden'}),
-            'accesorio' : forms.TextInput(attrs={'class': 'form-control'}),
-            'marca' : forms.Select(attrs={'class': 'form-control'}),
+            'accesorio' : forms.Select(attrs={'class': 'form-control'}),
+            'marca' : forms.TextInput(attrs={'class': 'form-control'}),
             'modelo' : forms.TextInput(attrs={'class': 'form-control'}),
             'descripcion' : forms.TextInput(attrs={'class': 'form-control'}),
             'year' : forms.TextInput(attrs={'class': 'form-control'}),
             'precio' : forms.TextInput(attrs={'class': 'form-control'}),
-            'imagenAccesorio' : forms.TextInput(attrs={'class': 'form-control'}),
-        }
+            }
+
+
+class ActualizacionAccesorio(forms.ModelForm):
+    class Meta:
+        model = Accesorio2
+        fields = ('usuario','accesorio','marca','modelo','descripcion','year','precio')
+
+class FormularioEdicion(UserChangeForm):
+    password = None
+    email = forms.CharField(widget=forms.EmailInput(attrs={'class':'form-control'}))
+    first_name = forms.CharField(max_length=20, label='Nombre', widget=forms.TextInput(attrs={'class':'form-control'}))
+    last_name = forms.CharField(max_length=20, label='Apellido', widget=forms.TextInput(attrs={'class':'form-control'}))
+    username = forms.CharField(max_length=20, label='Usuario', widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    class Meta:
+        model = User
+        fields = ('email', 'username', 'first_name', 'last_name')

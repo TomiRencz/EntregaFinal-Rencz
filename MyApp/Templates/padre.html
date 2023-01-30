@@ -19,11 +19,11 @@
     <body>
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'listaTeclados' %}">Teclados</a>
-                <a class="navbar-brand" href="{% url 'listaMouses' %}">Mouses</a>
-                <a class="navbar-brand" href="{% url 'listaAuriculares' %}">Auriculares</a>
-                <a class="navbar-brand" href="{% url 'Productos' %}">Productos</a>
+                <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
+                <a class="navbar-brand" href="{% url 'Teclados' %}">Teclados</a>
+                <a class="navbar-brand" href="{% url 'Mouses' %}">Mouses</a>
+                <a class="navbar-brand" href="{% url 'Auriculares' %}">Auriculares</a>
+                <a class="navbar-brand" href="{% url 'Nuevo' %}">Productos</a>
                 <a class="navbar-brand" href="{% url 'acerca_de_mi' %}">Acerca de mi =)</a>
                 {% if not request.user.is_authenticated %}
                 <a class="btn btn-primary" href="{% url 'Login' %}">Login</a>
@@ -32,7 +32,7 @@
                 <p class="text-muted mb-4 mb-lg-0">
                     Hola, {{user.username}}!
                 </p>
-                <a style="color: black; margin-right: 10px;" href="{% url 'cambiar_password' %}">
+                <a style="color: black; margin-right: 10px;" href="{% url 'editar_perfil' %}">
                     <i class="bi bi-pencil-square fs-4"></i>
                 </a>
                 <a class="btn btn-danger" href="{% url 'Logout' %}">Logout</a>

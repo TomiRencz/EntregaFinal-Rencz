@@ -3,40 +3,35 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-<div class="container text-center">
-    <h1>Mouses</h1>
-</div>
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+
+{% if user.id == mouse.usuario.id %}
 <div class="container text-center">
-    <div class="row">
-            {% if mouse %}
-            {% for mouse in mouse %}
-            <div class="col-sm-6 align-items-center">
-                <div class="card-body">
-                    {% if mouse.imagenAccesorio %}
-                <img src="{{mouse.imagenAccesorio.url}}" class="" width="100px">
-                    {% else %}
-                    <p>No hay imagen </p>
-                    {% endif %}
-                {{mouse.titulo}}
-                <a href="{% url 'mouse' mouse.id %}"><i class="bi bi-eye"></i></a>
-                {% if user.id == mouse.usuario.id %}
-                <a href="{% url 'mouse_editar' mouse.id %}"><i class="bi bi-pencil-fill"></i></a>
-                <a href="{% url 'mouse_eliminar' mouse.id %}"><i class="bi bi-trash text-danger"></i></a>
-                <br>
-                <br>
-                <br>
-                <br>
-                {% endif %}
-                </div>
-            </div>
-            {% endfor %}
-            {% else %}
-            <p>Test</p>
-            {% endif %}
-    </div>
+
+<form method="post">{% csrf_token %}
+    <h4>Estás seguro(a) que deseas borrar el mouse {{mouse.marca}} {{mouse.modelo}} ?</h4>
+    <p>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </p>
+</form>
+
 </div>
+{% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 {% endblock %}

@@ -3,6 +3,8 @@ from MyApp.models import *
 
 admin.site.register(Accesorio2)
 
+admin.site.register(Comentario)
+
 # admin.site.register(Vendedor)
 
 # admin.site.register(Comprador)
