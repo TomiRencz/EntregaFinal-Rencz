@@ -1,0 +1,97 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contacto</title>
+    <style>
+        body {
+            font-family: Calibri;
+            font-size: 14px;
+          }
+      
+          header {
+            background-color: #f2f2f2;
+            padding: 1em;
+            text-align: left;
+          }
+      
+          h1 {
+            margin: 2;
+          } 
+        </style>  
+
+    <style>
+        /* Estilos para el formulario */
+        form {
+            width: 100%;
+            margin: 20 auto; /* Centra el formulario en la pantalla */
+        }
+        /* Estilos para los labels */
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 1px;
+        }
+        /* Estilos para los inputs */
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 1px;
+        }
+        /* Estilos para el botón de enviar */
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 1px;
+            cursor: pointer;
+        }
+        /* Estilos para la sección de información de contacto */
+        h2 {
+            text-align: left;
+        }
+        p {
+            margin: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dejanos tu consulta aca!</h1>
+    <form action="enviar_mensaje.php" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <text-align: left><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        <text-align: left><br>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje"></textarea><br>
+        <text-align: left><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+    <br>
+    <h2>¿Queres comunicarte con nosotros?</h2>
+    <p>Teléfono: 011-2837-9800</p>
+    <br>
+    <p>Email: contacto@techhouse.com</p>
+    <br>
+    <p>Dirección: Florida 537 Local 379 - Planta Baja, 1005 Buenos Aires</p>
+</body>
+</html>
+
+{% endblock %}

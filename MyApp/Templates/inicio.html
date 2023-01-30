@@ -1,0 +1,32 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<style>
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        }
+</style>
+    <div class="container" style="margin-top: 300px; margin-bottom: 300px;">
+    <h1>Bienvenido!</h1>
+    <h3>Busca tu accesorio aca:</h3>
+    <form action="/MyApp/buscar/" method="GET">
+        <input type="text" name="nombre" id="producto">
+        <input type="submit" value="Buscar">
+    </form>
+    {% if productos %}
+    <p>Resultado de la busqueda:</p>
+    <ul>
+    {% for producto in productos %}
+        <li> {{producto.nombre}} </li>
+        <li> {{producto.modelo}} </li>
+        <li> {{producto.marca}} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+{% endblock %}

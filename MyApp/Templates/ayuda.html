@@ -1,0 +1,63 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Ayuda</title> 
+  <style>
+    /* Add some basic styling */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #f2f2f2;
+      padding: 1em;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    /* Style the sections */
+    section {
+      margin: 1em 0;
+      padding: 1em;
+      background-color: #e5e5e5;
+    }
+
+    /* Style the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 1em;
+      text-align: center;
+    }
+  </style>
+</head> 
+<body> 
+  <header> 
+    <h1>Página de Ayuda</h1> 
+  </header> 
+  <main> 
+    <section id="seccion1"> 
+      <h2>¿Cómo usar el sitio web?</h2> 
+      <p>Para usar el sitio web, primero debe iniciar sesión con su nombre de usuario y contraseña. Luego, puede navegar por las diferentes secciones del sitio utilizando el menú de navegación en la parte superior de la página. Si tiene alguna pregunta o problema mientras usa el sitio, no dude en consultar esta página de ayuda o contactar al soporte técnico.</p> 
+    </section> 
+    <section id="seccion2"> 
+      <h2>¿Cómo cambiar mi contraseña?</h2> 
+      <p>Para cambiar su contraseña, vaya a "Configuración de cuenta" en el menú de navegación y haga clic en "Cambiar contraseña". Ingrese su contraseña actual y luego ingrese y confirma su nueva contraseña. Haga clic en "Guardar" para guardar los cambios.</p> 
+    </section> 
+    <section id="seccion3"> 
+      <h2>¿Cómo contactar al soporte técnico?</h2> 
+      <p>Para contactar al soporte técnico, haga clic en "Contacto" en el menú de navegación o envíe un correo electrónico a contacto@techhouse.com</p> 
+    </section> 
+  </main> 
+  <footer> 
+    <p>Copyright - 2023
+
+      {% endblock %}

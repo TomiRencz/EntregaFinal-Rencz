@@ -1,0 +1,40 @@
+{% extends 'padre.html' %}
+
+{% block content %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{teclado.titulo}}</h4></p>
+{% if teclado.imagenAccesorio %}
+    <p><img src="/static/MyApp/assets/img/kumara1.jpg" alt=""></p>
+{% endif %}
+<p>Marca: {{teclado.marca}}</p>
+<p>Modelo: {{teclado.modelo}}</p>
+<p>Descripción: {{teclado.descripcion}}</p>
+<p>Año: {{teclado.year}}</p>
+<p>Precio(US$): {{teclado.precio}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not teclado.comentarios.all %}
+        No han comentado este teclado
+    {% else %}
+        {% for comentario in teclado.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' teclado.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock %}
