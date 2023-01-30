@@ -1,0 +1,40 @@
+{% extends 'padre.html' %}
+
+{% block content %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{mouse.titulo}}</h4></p>
+{% if mouse.imagenAccesorio %}
+    <p><img src="" alt=""></p>
+{% endif %}
+<p>Marca: {{mouse.marca}}</p>
+<p>Modelo: {{mouse.modelo}}</p>
+<p>Descripción: {{mouse.descripcion}}</p>
+<p>Año: {{mouse.year}}</p>
+<p>Precio(US$): {{mouse.precio}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not mouse.comentarios.all %}
+        No han comentado este mouse
+    {% else %}
+        {% for comentario in mouse.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' mouse.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock %}

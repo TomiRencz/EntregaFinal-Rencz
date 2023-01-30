@@ -4,14 +4,53 @@
 
 {% block contenidoQueCambia %}
 
-    <h1>Agrega un producto:</h1>
-    {% if miFormulario.errors %}
-    <p style="color: red;"> Están mal los datos, revisar</p>
-    {% endif %}
-    <form action="" method="POST">{% csrf_token %}
-        <table>
-            {{ miFormulario.as_table }}
-        </table>
-        <input type="submit", value="Enviar">
-    </form>
+<style>
+    h1 {
+        text-align: center;
+        color: darkblue;
+        font-size: 24px;
+    }
+    
+    form {
+        width: 500px;
+        margin: 0 auto;
+    }
+    
+    table {
+        margin: 20px 0;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td, th {
+        border: 1px solid gray;
+        padding: 10px;
+    }
+    
+    input[type="submit"] {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: lightblue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    p.error {
+        text-align: center;
+        color: red;
+    }
+</style>
+<h1>Agrega un producto:</h1>
+{% if miFormulario.errors %}
+    <p class="error">Están mal los datos, revisar</p>
+{% endif %}
+<form action="" method="POST">{% csrf_token %}
+    <table>
+        {{ miFormulario.as_table }}
+    </table>
+    <input type="submit", value="Enviar">
+</form>
 {% endblock %}

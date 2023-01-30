@@ -20,9 +20,9 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'Teclados' %}">Teclados</a>
-                <a class="navbar-brand" href="{% url 'Mouses' %}">Mouses</a>
-                <a class="navbar-brand" href="{% url 'Auriculares' %}">Auriculares</a>
+                <a class="navbar-brand" href="{% url 'listaTeclados' %}">Teclados</a>
+                <a class="navbar-brand" href="{% url 'listaMouses' %}">Mouses</a>
+                <a class="navbar-brand" href="{% url 'listaAuriculares' %}">Auriculares</a>
                 <a class="navbar-brand" href="{% url 'Productos' %}">Productos</a>
                 <a class="navbar-brand" href="{% url 'acerca_de_mi' %}">Acerca de mi =)</a>
                 {% if not request.user.is_authenticated %}

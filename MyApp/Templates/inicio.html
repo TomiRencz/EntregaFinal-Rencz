@@ -15,16 +15,16 @@
     <h1>Bienvenido!</h1>
     <h3>Busca tu accesorio aca:</h3>
     <form action="/MyApp/buscar/" method="GET">
-        <input type="text" name="nombre" id="producto">
+        <input type="text" name="nombre" id="accesorio">
         <input type="submit" value="Buscar">
     </form>
-    {% if productos %}
+    {% if accesorio2 %}
     <p>Resultado de la busqueda:</p>
     <ul>
-    {% for producto in productos %}
-        <li> {{producto.nombre}} </li>
-        <li> {{producto.modelo}} </li>
-        <li> {{producto.marca}} </li>
+    {% for accesorio2 in accesorio2 %}
+        <li> {{accesorio2.accesorio}} </li>
+        <li> {{accesorio2.marca}} </li>
+        <li> {{accesorio2.precio}} </li>
     {% endfor %}
     </ul>
     {% endif %}

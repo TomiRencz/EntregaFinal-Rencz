@@ -20,7 +20,7 @@ class ProductoFormulario(forms.Form):
     precio = forms.IntegerField()
     antiguedad = forms.IntegerField()
 
-class AccesorioFormulario(forms.Form):
+class Accesorio2Formulario(forms.Form):
     nombre = forms.CharField(max_length=30)
     marca = forms.CharField(max_length=30)
     modelo = forms.CharField(max_length=30)
@@ -66,8 +66,8 @@ class FormularioCambioPassword(PasswordChangeForm):
 
 class ActualizacionAccesorio(forms.ModelForm):
     class Meta:
-        model = Accesorio
-        fields = ('nombre','marca','modelo','precio')
+        model = Accesorio2
+        fields = ('usuario','accesorio','marca','modelo','descripcion','year','precio','imagenAccesorio')
 
 
 class FormularioComentario(forms.ModelForm):
@@ -79,14 +79,30 @@ class FormularioComentario(forms.ModelForm):
             'mensaje' : forms.Textarea(attrs={'class': 'form-control'}),
         }
 
-class FormularioNuevoAccesorio(forms.ModelForm):
+# class FormularioNuevoAccesorio(forms.ModelForm):
+#     class Meta:
+#         model = Accesorio
+#         fields = ('nombre','marca','modelo','precio')
+
+#         widgets = {
+#             'nombre': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id':'usuario_id', 'type':'hidden'}),
+#             'marca' : forms.TextInput(attrs={'class': 'form-control'}),
+#             'modelo' : forms.Select(attrs={'class': 'form-control'}),
+#             'precio' : forms.TextInput(attrs={'class': 'form-control'}),
+        # }
+
+class FormularioNuevoAccesorio2(forms.ModelForm):
     class Meta:
-        model = Accesorio
-        fields = ('nombre','marca','modelo','precio')
+        model = Accesorio2
+        fields = ('usuario','accesorio','marca','modelo','descripcion','year','precio','imagenAccesorio')
 
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id':'usuario_id', 'type':'hidden'}),
-            'marca' : forms.TextInput(attrs={'class': 'form-control'}),
-            'modelo' : forms.Select(attrs={'class': 'form-control'}),
+            'usuario': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id':'usuario_id', 'type':'hidden'}),
+            'accesorio' : forms.TextInput(attrs={'class': 'form-control'}),
+            'marca' : forms.Select(attrs={'class': 'form-control'}),
+            'modelo' : forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion' : forms.TextInput(attrs={'class': 'form-control'}),
+            'year' : forms.TextInput(attrs={'class': 'form-control'}),
             'precio' : forms.TextInput(attrs={'class': 'form-control'}),
+            'imagenAccesorio' : forms.TextInput(attrs={'class': 'form-control'}),
         }

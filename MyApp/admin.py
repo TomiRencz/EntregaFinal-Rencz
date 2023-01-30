@@ -1,7 +1,7 @@
 from django.contrib import admin
 from MyApp.models import *
 
-admin.site.register(Accesorio)
+admin.site.register(Accesorio2)
 
 # admin.site.register(Vendedor)
 

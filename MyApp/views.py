@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.http import HttpResponse
-from MyApp.models import Accesorio, Producto
+from MyApp.models import Producto
 from MyApp.forms import *
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
@@ -22,59 +22,59 @@ def productos(request):
                   producto.save()
                   return render(request, "inicio.html") 
       else: 
-            miFormulario= AccesorioFormulario() 
+            miFormulario= ProductoFormulario() 
       return render(request, "productos.html", {"miFormulario":miFormulario}) 
 
 def accesorios(request):
       if request.method == 'POST':
-            miFormulario = AccesorioFormulario(request.POST) 
+            miFormulario = Accesorio2Formulario(request.POST) 
             print(miFormulario)
             if miFormulario.is_valid:   
                   informacion = miFormulario.cleaned_data
-                  producto = Accesorio(nombre=informacion['nombre'], marca=informacion['marca'], modelo=informacion['modelo'],precio=informacion['precio']) 
+                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagenAccesorio=informacion['imagenAccesorio']) 
                   producto.save()
                   return render(request, "inicio.html") 
       else: 
-            miFormulario= AccesorioFormulario() 
+            miFormulario= Accesorio2Formulario() 
       return render(request, "productos.html", {"miFormulario":miFormulario}) 
 
 def teclados(request):
       if request.method == 'POST':
-            miFormulario = AccesorioFormulario(request.POST) 
+            miFormulario = FormularioNuevoAccesorio2(request.POST) 
             print(miFormulario)
             if miFormulario.is_valid:   
                   informacion = miFormulario.cleaned_data
-                  producto = Accesorio(nombre=informacion['nombre'], marca=informacion['marca'], modelo=informacion['modelo'],precio=informacion['precio']) 
+                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagenAccesorio=informacion['imagenAccesorio']) 
                   producto.save()
                   return render(request, "inicio.html") 
       else: 
-            miFormulario= AccesorioFormulario() 
+            miFormulario= FormularioNuevoAccesorio2() 
       return render(request, "productos.html", {"miFormulario":miFormulario}) 
 
 def mouses(request):
       if request.method == 'POST':
-            miFormulario = AccesorioFormulario(request.POST) 
+            miFormulario = FormularioNuevoAccesorio2(request.POST) 
             print(miFormulario)
             if miFormulario.is_valid:   
                   informacion = miFormulario.cleaned_data
-                  producto = Accesorio(nombre=informacion['nombre'], marca=informacion['marca'], modelo=informacion['modelo'],precio=informacion['precio']) 
+                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagenAccesorio=informacion['imagenAccesorio']) 
                   producto.save()
                   return render(request, "inicio.html") 
       else: 
-            miFormulario= AccesorioFormulario() 
+            miFormulario= FormularioNuevoAccesorio2() 
       return render(request, "productos.html", {"miFormulario":miFormulario}) 
 
 def auriculares(request):
       if request.method == 'POST':
-            miFormulario = AccesorioFormulario(request.POST) 
+            miFormulario = FormularioNuevoAccesorio2(request.POST) 
             print(miFormulario)
             if miFormulario.is_valid:   
                   informacion = miFormulario.cleaned_data
-                  producto = Accesorio(nombre=informacion['nombre'], marca=informacion['marca'], modelo=informacion['modelo'],precio=informacion['precio']) 
+                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagenAccesorio=informacion['imagenAccesorio']) 
                   producto.save()
                   return render(request, "inicio.html") 
       else: 
-            miFormulario= AccesorioFormulario() 
+            miFormulario= FormularioNuevoAccesorio2() 
       return render(request, "productos.html", {"miFormulario":miFormulario}) 
 
 # def compradores(request):
@@ -119,7 +119,7 @@ def auriculares(request):
 def buscar(request):
     if request.GET["nombre"]:
         nombre = request.GET['nombre'] 
-        productos = Accesorio.objects.filter(nombre__icontains=nombre)
+        productos = Producto.objects.filter(nombre__icontains=nombre)
         return render(request, "inicio.html", {"productos":productos, "nombre":nombre})
     else: 
         respuesta = "No enviaste datos"
@@ -220,28 +220,78 @@ def password_exitoso(request):
 
 # # TECLADO
 
-# class TecladoLista(LoginRequiredMixin, ListView):
-#     context_object_name = 'teclados'
-#     queryset = Accesorio.objects.filter(accesorio__startswith='teclado')
-#     template_name = 'listaTeclados.html'
+class TecladoLista(LoginRequiredMixin, ListView):
+    context_object_name = 'teclado'
+    queryset = Accesorio2.objects.filter(accesorio__startswith='teclado')
+    template_name = 'listaTeclados.html'
 
-# class TecladoDetalle(LoginRequiredMixin, DetailView):
-#     model = Accesorio
-#     context_object_name = 'teclado'
-#     template_name = 'tecladoDetalle.html'
+class TecladoDetalle(LoginRequiredMixin, DetailView):
+    model = Accesorio2
+    context_object_name = 'teclado'
+    template_name = 'tecladoDetalle.html'
 
-# class TecladoUpdate(LoginRequiredMixin, UpdateView):
-#     model = Accesorio
-#     form_class = ActualizacionAccesorio
-#     success_url = reverse_lazy('teclados')
-#     context_object_name = 'teclado'
-#     template_name = 'tecladoEdicion.html'
+class TecladoUpdate(LoginRequiredMixin, UpdateView):
+    model = Accesorio2
+    form_class = ActualizacionAccesorio
+    success_url = reverse_lazy('teclados')
+    context_object_name = 'teclado'
+    template_name = 'tecladoEdicion.html'
 
-# class TecladoDelete(LoginRequiredMixin, DeleteView):
-#     model = Accesorio
-#     success_url = reverse_lazy('teclados')
-#     context_object_name = 'teclado'
-#     template_name = 'tecladoBorrado.html'
+class TecladoDelete(LoginRequiredMixin, DeleteView):
+    model = Accesorio2
+    success_url = reverse_lazy('teclados')
+    context_object_name = 'teclado'
+    template_name = 'tecladoBorrado.html'
+
+# # AURICULAR
+
+class AuricularLista(LoginRequiredMixin, ListView):
+    context_object_name = 'auricular'
+    queryset = Accesorio2.objects.filter(accesorio__startswith='auricular')
+    template_name = 'listaAuriculares.html'
+
+class AuricularDetalle(LoginRequiredMixin, DetailView):
+    model = Accesorio2
+    context_object_name = 'auricular'
+    template_name = 'auricularDetalle.html'
+
+class AuricularUpdate(LoginRequiredMixin, UpdateView):
+    model = Accesorio2
+    form_class = ActualizacionAccesorio
+    success_url = reverse_lazy('auriculares')
+    context_object_name = 'auricular'
+    template_name = 'auricularEdicion.html'
+
+class AuricularDelete(LoginRequiredMixin, DeleteView):
+    model = Accesorio2
+    success_url = reverse_lazy('auriculares')
+    context_object_name = 'auricular'
+    template_name = 'auricularBorrado.html'
+
+# # MOUSE
+
+class MouseLista(LoginRequiredMixin, ListView):
+    context_object_name = 'mouse'
+    queryset = Accesorio2.objects.filter(accesorio__startswith='mouse')
+    template_name = 'listaMouses.html'
+
+class MouseDetalle(LoginRequiredMixin, DetailView):
+    model = Accesorio2
+    context_object_name = 'mouse'
+    template_name = 'mouseDetalle.html'
+
+class MouseUpdate(LoginRequiredMixin, UpdateView):
+    model = Accesorio2
+    form_class = ActualizacionAccesorio
+    success_url = reverse_lazy('mouses')
+    context_object_name = 'mouse'
+    template_name = 'mouseEdicion.html'
+
+class MouseDelete(LoginRequiredMixin, DeleteView):
+    model = Accesorio2
+    success_url = reverse_lazy('mouses')
+    context_object_name = 'mouse'
+    template_name = 'mouseBorrado.html'
 
 #################
 
@@ -255,12 +305,12 @@ class ComentarioPagina(LoginRequiredMixin, CreateView):
         form.instance.comentario_id = self.kwargs['pk']
         return super(ComentarioPagina, self).form_valid(form)
 
-class AccesorioCreacion(LoginRequiredMixin, CreateView):
-    model = Accesorio
-    form_class = FormularioNuevoAccesorio
+class AccesorioCreacion2(LoginRequiredMixin, CreateView):
+    model = Accesorio2
+    form_class = FormularioNuevoAccesorio2
     success_url = reverse_lazy('inicio')
     template_name = 'accesorioCreacion.html'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(AccesorioCreacion, self).form_valid(form)
+        return super(AccesorioCreacion2, self).form_valid(form)

@@ -1,0 +1,40 @@
+{% extends 'padre.html' %}
+
+{% block content %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{auricular.titulo}}</h4></p>
+{% if auricular.imagenAccesorio %}
+    <p><img src="" alt=""></p>
+{% endif %}
+<p>Marca: {{auricular.marca}}</p>
+<p>Modelo: {{auricular.modelo}}</p>
+<p>Descripción: {{auricular.descripcion}}</p>
+<p>Año: {{auricular.year}}</p>
+<p>Precio(US$): {{auricular.precio}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not auricular.comentarios.all %}
+        No han comentado este auricular
+    {% else %}
+        {% for comentario in auricular.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' auricular.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock %}
