@@ -82,7 +82,9 @@ def buscar(request):
         marca = request.GET['marca'] 
         accesorio = Accesorio2.objects.filter(marca__icontains=marca)
         return render(request, "inicio.html", {"accesorio":accesorio, "marca":marca})
-    return render(request, "inicio.html", {})
+    else:
+        respuesta= "No se ingresaron datos"
+    return render(request, "inicio.html", {'respuesta':respuesta})
 
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate

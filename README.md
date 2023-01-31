@@ -1,4 +1,4 @@
-# TerceraPreEntrega-Rencz
+# Proyecto Final Coder House - Python
 #### Comisión: 34655
 #### Alumno: Tomas Rencz
 
@@ -6,19 +6,46 @@
 Compra y venta de Accesorios Gaming
 
 ## Versión
-0.1
+1.0
 
 ## Descripción del Proyecto
-Es una página web enfocada a usuarios que desean tanto comprar como vender accesorios del Mundo Gamer.
+Página Web destinada a usuarios que deseen comprar o vender accesorios gaming.
 
-## Descripción de la entrega
-En esta entrega, se disponibilizaron las siguientes funcionalidades:
+A fin de navegar por las secciones de la página web, el usuario será requerido iniciar sesión o registrarse en caso de no contar con usuario o contraseña. En ambas opciones, una vez la página valide la autenticación del usuario, este será redirigido al inicio de la página web.
 
-1. Inicio: Desde aquí se puede buscar un accesorio en la BB.DD.
-2. Vendedores: Desde este apartado, se pueden agregar vendedores a la base de datos ingresando su nombre, apellido y el mail de contacto.
-3. Vendedores: Desde este apartado, se pueden agregar compradores a la base de datos ingresando su nombre, apellido y el mail de contacto.
-4. Empresas: Desde este apartado, se pueden agregar empresa desarrolladoras de accesorios para el conocimiento de los interesados.
-5. Productos: Desde aquí se puede agregar un producto para vender o comprar en la BB.DD.
-6. Login: Mediante el botón LOGIN, los usuarios podrán loguearse.
+Los usuarios pueden realizar las siguientes accciones:
+- Publicar accesorios.
+- Visualizar accesorios publicados, los cuales están distribuidos en las secciones "Teclados", "Mouses" y "Auriculares".
+- Comentar dentro de cada accesorio.
+- Editar el perfil de Usuario.
+- Cambiar la contraseña de Usuario.
+- Cerrar Sesión.
+- Login en caso de haber cerrado sesión.
 
-Por otro lado, están los íconos que redireccionan a las redes sociales y los botones de Ayuda y Contacto.
+Nota: La opción de editar y eliminar instrumentos musicales solo le está permitido al autor de la publicacion del accesorio.
+
+## Tecnología Utilizada
+
+##### Front-End
+- HTML 5
+- CSS 3
+- Bootstrap 5.2
+
+##### Back-End
+- Python 3.10.4
+- Django 4.0
+
+## Pruebas Realizadas
+
+Ver archivo titulado "Pruebas Proyecto Final.xslx" el cual se encuentra en el presente repositorio https://github.com/TomiRencz/EntregaFinal-Rencz.git
+
+## Video Demostración
+
+
+
+
+
+
+
+
+

@@ -47,15 +47,14 @@
     <br>
     <h1>Dejanos tu consulta aca!</h1>
     <br>
-    <form action="enviar_mensaje.php" method="post">
+    <form action="enviar_mensaje.php" method="POST">
+        {% csrf_token %}
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombre" name="nombre" required>
         <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
-
+    <input type="email" id="email" name="email" required>
     <label for="mensaje">Mensaje:</label>
-    <textarea id="mensaje" name="mensaje"></textarea>
-
+    <textarea id="mensaje" name="mensaje" required></textarea>
     <div class="container text-center">
         <a href="{% url 'ContactoRespuesta' %}" class="btn btn-outline-dark">Enviar</a>
         <br>

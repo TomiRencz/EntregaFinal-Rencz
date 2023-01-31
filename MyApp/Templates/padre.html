@@ -35,12 +35,12 @@
                 <a style="color: black; margin-right: 10px;" href="{% url 'editar_perfil' %}">
                     <i class="bi bi-pencil-square fs-4"></i>
                 </a>
-                <a class="btn btn-danger" href="{% url 'Logout' %}">Logout</a>
+                <a class="btn btn-danger" href="{% url 'Login' %}">Logout</a>
                 {% endif %}
             </div>
         </nav>
         {% block contenidoQueCambia %}
-        
+
         {% endblock %}
 
         <footer class="footer bg-dark" style="background: linear-gradient(90deg, rgb(27, 32, 48), rgb(36, 44, 156))">

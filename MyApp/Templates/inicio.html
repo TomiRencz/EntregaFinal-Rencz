@@ -18,13 +18,11 @@
         <input type="text" name="marca" id="accesorio">
         <input type="submit" value="Buscar">
     </form>
-    {% if accesorio2 %}
+    {% if accesorio %}
     <p>Resultado de la busqueda:</p>
     <ul>
-    {% for accesorio2 in accesorio2 %}
-        <li> {{accesorio2.accesorio}} </li>
-        <li> {{accesorio2.marca}} </li>
-        <li> {{accesorio2.precio}} </li>
+    {% for accesorio in accesorio %}
+    <li> {{accesorio.accesorio.title}} {{accesorio.marca.title}} {{accesorio.modelo.title}} </li>
     {% endfor %}
     </ul>
     {% endif %}

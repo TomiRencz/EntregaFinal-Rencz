@@ -24,8 +24,8 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        position: absolute;
-        top: 150px;
+        position: relative;
+        top: 130px;
         left: calc(70% - 50px);
             }
 
@@ -61,7 +61,7 @@
         button[type="submit"] {
         border: none;
         outline: none;
-        height: 45px;
+        height: 40px;
         background: #b80f22;
         color: #fff;
         font-size: 18px;
@@ -76,6 +76,14 @@
         color: #000;
         }
 
+        a {
+        height: 20px;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 30px;
+        width: 50%;
+        margin-left: 42%;
+        }
 </style>
 
 <div class="login-box">
@@ -85,9 +93,9 @@
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-
         <button type="submit">Registrate!</button>
-    
+        <br stlye="tex-align: center">
+        <a href="{% url 'Login' %}">Volver</a>
     </form>
 </body>
 </html>
