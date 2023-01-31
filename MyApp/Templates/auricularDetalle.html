@@ -10,14 +10,15 @@
 <div class="container">
 
 <p><h4>{{auricular.titulo}}</h4></p>
-{% if auricular.imagenAccesorio %}
-    <p><img src="" alt=""></p>
+{% if auricular.imagen %}
+    <p><img src="{{auricular.imagen.url}}" width="250px"></p>
 {% endif %}
 <p>Marca: {{auricular.marca}}</p>
 <p>Modelo: {{auricular.modelo}}</p>
 <p>Descripción: {{auricular.descripcion}}</p>
 <p>Año: {{auricular.year}}</p>
 <p>Precio: {{auricular.precio}}</p>
+
 
 </div>
 <br>

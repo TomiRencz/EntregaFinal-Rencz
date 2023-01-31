@@ -4,6 +4,8 @@
 
 {% block contenidoQueCambia %}
 <div class="container text-center">
+    <br>
+    <br>
     <h1>Auriculares</h1>
 </div>
 
@@ -15,12 +17,12 @@
             {% for auricular in auricular %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                    {% if auricular.imagenAccesorio %}
-                <img src="{{auricular.imagenAccesorio.url}}" class="" width="100px">
+                    {% if auricular.imagen %}
+                <img src="{{auricular.imagen.url}}" class="" width="350px">
                     {% else %}
                     <p>No hay imagen </p>
                     {% endif %}
-                {{teclado.titulo}}
+                {{auricular.marca}} {{auricular.modelo}}
                 <a href="{% url 'auricular' auricular.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == auricular.usuario.id %}
                 <a href="{% url 'auricular_editar' auricular.id %}"><i class="bi bi-pencil-fill"></i></a>
@@ -34,7 +36,7 @@
             </div>
             {% endfor %}
             {% else %}
-            <p>Test</p>
+            <p>No hay articulos en este apartado</p>
             {% endif %}
     </div>
 </div>

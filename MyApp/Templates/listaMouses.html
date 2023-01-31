@@ -4,6 +4,8 @@
 
 {% block contenidoQueCambia %}
 <div class="container text-center">
+    <br>
+    <br>
     <h1>Mouses</h1>
 </div>
 
@@ -15,16 +17,29 @@
             {% for mouse in mouse %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                    {% if mouse.imagenAccesorio %}
-                <img src="{{mouse.imagenAccesorio.url}}" class="" width="100px">
+                    {% if mouse.imagen %}
+                <img src="{{mouse.imagen.url}}" class="" width="350px">
                     {% else %}
                     <p>No hay imagen </p>
                     {% endif %}
-                {{mouse.titulo}}
+                    {{mouse.marca}} {{mouse.modelo}}
                 <a href="{% url 'mouse' mouse.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == mouse.usuario.id %}
                 <a href="{% url 'mouse_editar' mouse.id %}"><i class="bi bi-pencil-fill"></i></a>
                 <a href="{% url 'mouse_eliminar' mouse.id %}"><i class="bi bi-trash text-danger"></i></a>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 <br>
                 <br>
                 <br>
@@ -34,7 +49,7 @@
             </div>
             {% endfor %}
             {% else %}
-            <p>Test</p>
+            <p>No hay articulos en este apartado</p>
             {% endif %}
     </div>
 </div>

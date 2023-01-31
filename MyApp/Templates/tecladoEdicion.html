@@ -5,14 +5,10 @@
 {% block contenidoQueCambia %}
 <br>
 <br>
-
 {% if user.id == teclado.usuario.id %}
 <div class="container">
-
     <h4>Editar Teclado</h4>
-    
 </div>
-
 <div class="container">
     <div class="form-group">
         <form method="post" enctype="multipart/form-data">{% csrf_token %}

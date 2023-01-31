@@ -9,8 +9,8 @@
 <div class="container">
 
 <p><h4>{{mouse.titulo}}</h4></p>
-{% if mouse.imagenAccesorio %}
-    <p><img src="" alt=""></p>
+{% if mouse.imagen %}
+    <p><img src="{{mouse.imagen.url}}" width="250px"></p>
 {% endif %}
 <p>Marca: {{mouse.marca}}</p>
 <p>Modelo: {{mouse.modelo}}</p>

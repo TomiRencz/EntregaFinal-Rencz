@@ -4,6 +4,8 @@
 
 {% block contenidoQueCambia %}
 <div class="container text-center">
+    <br>
+    <br>
     <h1>Teclados</h1>
 </div>
 
@@ -15,27 +17,30 @@
             {% for teclado in teclado %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                    {% if teclado.imagenAccesorio %}
-                <img src="{{teclado.imagenAccesorio.url}}" class="" width="100px">
+                    {% if teclado.imagen %}
+                <img src="{{teclado.imagen.url}}" class="" width="350px">
                     {% else %}
                     <p>No hay imagen </p>
                     {% endif %}
-                {{teclado.titulo}}
+                    {{teclado.marca}} {{teclado.modelo}}
                 <a href="{% url 'teclado' teclado.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == teclado.usuario.id %}
                 <a href="{% url 'teclado_editar' teclado.id %}"><i class="bi bi-pencil-fill"></i></a>
                 <a href="{% url 'teclado_eliminar' teclado.id %}"><i class="bi bi-trash text-danger"></i></a>
-                <br>
-                <br>
-                <br>
-                <br>
                 {% endif %}
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 </div>
             </div>
             {% endfor %}
             {% else %}
-            <p>Test</p>
-            {% endif %}
+            <p>No hay articulos en este apartado</p>
+            {% endif %}          
     </div>
 </div>
 

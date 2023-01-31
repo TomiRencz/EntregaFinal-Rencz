@@ -87,7 +87,7 @@ class FormularioComentario(forms.ModelForm):
 class FormularioNuevoAccesorio2(forms.ModelForm):
     class Meta:
         model = Accesorio2
-        fields = ('accesorio','marca','modelo','descripcion','year','precio')
+        fields = ('usuario','accesorio','marca','modelo','descripcion','year','precio','imagen')
 
         widgets = {
             'usuario': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id':'usuario_id', 'type':'hidden'}),
@@ -103,7 +103,7 @@ class FormularioNuevoAccesorio2(forms.ModelForm):
 class ActualizacionAccesorio(forms.ModelForm):
     class Meta:
         model = Accesorio2
-        fields = ('usuario','accesorio','marca','modelo','descripcion','year','precio')
+        fields = ('marca','modelo','descripcion','year','precio','imagen')
 
 class FormularioEdicion(UserChangeForm):
     password = None

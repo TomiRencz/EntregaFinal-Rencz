@@ -20,12 +20,16 @@ class Accesorio2(models.Model):
     ('auricular','Auriculares'),
     )
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    accesorio = models.CharField(max_length=15, choices=AccesorioSeleccion)
+    accesorio = models.CharField(max_length=30, choices=AccesorioSeleccion)
     marca = models.CharField(max_length=40)
     modelo = models.CharField(max_length=40)
-    descripcion = models.TextField(null=True, blank=True)
+    descripcion = models.CharField(max_length=140)
     year = models.IntegerField()
     precio = models.DecimalField(max_digits=10, decimal_places=0) 
+    imagen = models.ImageField(null=True, blank=True, upload_to="assets/")
+
+    def __str__(self):
+        return f"Accesorio: {self.accesorio} - Marca: {self.marca} - Modelo: {self.modelo} - Year: {self.year} - Precio:{self.precio}"
 
 ############
 

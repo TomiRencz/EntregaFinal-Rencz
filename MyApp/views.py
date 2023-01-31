@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.http import HttpResponse
-from MyApp.models import Producto
+from MyApp.models import Accesorio2
 from MyApp.forms import *
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
@@ -12,18 +12,18 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def inicio(request):
         return render(request,"inicio.html")
 
-def productos(request):
-      if request.method == 'POST':
-            miFormulario = ProductoFormulario(request.POST) 
-            print(miFormulario)
-            if miFormulario.is_valid:   
-                  informacion = miFormulario.cleaned_data
-                  producto = Producto(nombre=informacion['nombre'], marca=informacion['marca'], modelo=informacion['modelo'],precio=informacion['precio'],antiguedad=informacion['antiguedad']) 
-                  producto.save()
-                  return render(request, "inicio.html") 
-      else: 
-            miFormulario= ProductoFormulario() 
-      return render(request, "productos.html", {"miFormulario":miFormulario}) 
+# def productos(request):
+#       if request.method == 'POST':
+#             miFormulario = ProductoFormulario(request.POST) 
+#             print(miFormulario)
+#             if miFormulario.is_valid:   
+#                   informacion = miFormulario.cleaned_data
+#                   producto = Producto(nombre=informacion['nombre'], marca=informacion['marca'], modelo=informacion['modelo'],precio=informacion['precio'],antiguedad=informacion['antiguedad']) 
+#                   producto.save()
+#                   return render(request, "inicio.html") 
+#       else: 
+#             miFormulario= ProductoFormulario() 
+#       return render(request, "productos.html", {"miFormulario":miFormulario}) 
 
 def accesorios(request):
       if request.method == 'POST':
@@ -31,7 +31,7 @@ def accesorios(request):
             print(miFormulario)
             if miFormulario.is_valid:   
                   informacion = miFormulario.cleaned_data
-                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagenAccesorio=informacion['imagenAccesorio']) 
+                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagen=informacion['imagen']) 
                   producto.save()
                   return render(request, "inicio.html") 
       else: 
@@ -44,7 +44,7 @@ def teclados(request):
             print(miFormulario)
             if miFormulario.is_valid:   
                   informacion = miFormulario.cleaned_data
-                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagenAccesorio=informacion['imagenAccesorio']) 
+                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagen=informacion['imagen']) 
                   producto.save()
                   return render(request, "inicio.html") 
       else: 
@@ -57,7 +57,7 @@ def mouses(request):
             print(miFormulario)
             if miFormulario.is_valid:   
                   informacion = miFormulario.cleaned_data
-                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagenAccesorio=informacion['imagenAccesorio']) 
+                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagen=informacion['imagen']) 
                   producto.save()
                   return render(request, "inicio.html") 
       else: 
@@ -70,7 +70,7 @@ def auriculares(request):
             print(miFormulario)
             if miFormulario.is_valid:   
                   informacion = miFormulario.cleaned_data
-                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagenAccesorio=informacion['imagenAccesorio']) 
+                  producto = Accesorio2(usuario=informacion['usuario'], nombre=informacion['accesorio'], marca=informacion['marca'],modelo=informacion['modelo'],descripcion=informacion['descripcion'],precio=informacion['precio'],imagen=informacion['imagen']) 
                   producto.save()
                   return render(request, "inicio.html") 
       else: 
@@ -78,13 +78,11 @@ def auriculares(request):
       return render(request, "productos.html", {"miFormulario":miFormulario}) 
 
 def buscar(request):
-    if request.GET["nombre"]:
-        nombre = request.GET['nombre'] 
-        productos = Producto.objects.filter(nombre__icontains=nombre)
-        return render(request, "inicio.html", {"productos":productos, "nombre":nombre})
-    else: 
-        respuesta = "No enviaste datos"
-    return HttpResponse(respuesta)
+    if request.GET["marca"]:
+        marca = request.GET['marca'] 
+        accesorio = Accesorio2.objects.filter(marca__icontains=marca)
+        return render(request, "inicio.html", {"accesorio":accesorio, "marca":marca})
+    return render(request, "inicio.html", {})
 
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
@@ -166,6 +164,11 @@ def help(request):
 
 def contact(request):
     return render(request, 'contacto.html', {})
+
+#################
+
+def contact_response(request):
+    return render(request, 'contactoRespuesta.html', {})
 
 #################
 

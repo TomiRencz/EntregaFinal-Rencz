@@ -40,35 +40,21 @@
             </div>
         </nav>
         {% block contenidoQueCambia %}
-        …..
+        
         {% endblock %}
 
-        <footer class="p-5 bg-dark text-white text-center position-sticky">
-            <div class="container" style="height: 50px;">
-                <p class="lead text-white">Copyright &copy; Tomas Rencz</p>
-                    <div class="col-lg-5 h-5 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-3">
-                            <li class="list-inline-item"><a href="{% url 'Ayuda' %}">Ayuda</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="{% url 'Contacto' %}">Contacto</a></li>
+        <footer class="footer bg-dark" style="background: linear-gradient(90deg, rgb(27, 32, 48), rgb(36, 44, 156))">
+            <div class="container" style="height: 60px;">
+                <div class="row">
+                    <div class="h-100 text-center my-auto" style="margin-bottom: 100px">
+                        <ul class="list-inline mb-2" style="font-size: 19px;">
+                            <li class="list-inline-item"><a href="{% url 'Ayuda' %}" style="color:rgb(247, 247, 252); text-decoration: none;" onmouseover="this.style.color='lightgrey'" onmouseout="this.style.color='rgb(247, 247, 252)'"><b>¿Necesitas ayuda?</b></a></li>
+                            <li class="list-inline-item">-</li>
+                            <li class="list-inline-item"><a href="{% url 'Contacto' %}" style="color:rgb(247, 247, 252); text-decoration: none;"onmouseover="this.style.color='lightgrey'" onmouseout="this.style.color='rgb(247, 247, 252)'"><b>¿Queres contactarnos?</b></a></li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-2">&copy; Venta de accesorios Gaming - TechHouse S.A.</p>
-                    </div>
-                    <div class="col-lg-12 h-10 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-5">
-                            <li class="list-inline-item me-4">
-                                <a href="https://www.twitch.tv/tomir09"><i class="bi-twitch fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="https://twitter.com/Toomy_Rz"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://instagram.com/tomy_rencz"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                        <br>
+                        <p class="small mb-4 mb-lg-0" style="color: rgb(190, 192, 197);">CoderHouse - Tomas Rencz</p>
+                    <p class="small mb-4 mb-lg-0" style="color: rgb(190, 192, 197);">Venta de accesorios Gaming - TechHouse S.A.</p>
             </div>
-            </footer>
-          </body>
-          </html>
+        </footer>
+          

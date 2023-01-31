@@ -8,7 +8,7 @@ urlpatterns = [
     # path('teclados', views.teclados, name="Teclados"),
     # path('auriculares', views.auriculares, name="Auriculares"),
     # path('mouses', views.mouses, name="Mouses"),
-    path('productos', views.productos, name="Productos"),
+    # path('accesorios', views.accesorios, name="Accesorios"),
 
     path('register', views.register, name='Register'),
     path('login/', views.login_request, name="Login"),
@@ -21,7 +21,7 @@ urlpatterns = [
 
     path('ayuda/', views.help, name="Ayuda"),
     path('contacto/', views.contact, name="Contacto"),
-    path('contactoRespuesta/', views.contact, name="ContactoRespuesta"),
+    path('contactoRespuesta/', views.contact_response, name="ContactoRespuesta"),
 
     path('buscar/', views.buscar),
 
