@@ -4,6 +4,12 @@
 
 {% block contenidoQueCambia %}
 
+<style>
+    button {
+        border-radius: 20px;
+    }
+</style>
+
 <br>
 <br>
 <br>
@@ -13,13 +19,6 @@
 </div>
 
 <div class="container">
-<style>
-        button {
-            background: #b80f22;
-        color: #fff;
-        }
-
-    </style>
 <form id="login-form" style=" width: 50vw; margin-left : 5vw;" method="post" enctype="multipart/form-data">{% csrf_token %}
     {{ form.as_p }}
     <br>
